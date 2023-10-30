@@ -240,8 +240,6 @@ void Grid::spawnCell() {
         }
     }
 
-
-
 }
 
 bool Grid::isDefeat() {
