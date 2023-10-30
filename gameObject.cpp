@@ -1,0 +1,7 @@
+GameObject::GameObject()
+{
+}
+
+GameObject::~GameObject()
+{
+}
