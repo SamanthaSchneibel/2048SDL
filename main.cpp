@@ -3,7 +3,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) { 
 
 	const char* title = "2048";
 
@@ -13,12 +13,6 @@ int main(int argc, char* argv[]) {
 	SDL_Texture* tex = SDL_CreateTextureFromSurface(ren, tmpSur);
 
 	SDL_FreeSurface(tmpSur);
-	SDL_Rect src, dest;
-	src.h = src.w = 32;
-	src.x = src.y = 0;
-	dest.x = dest.y = 400;
-	dest.w = src.w * 2;
-	dest.h = src.h * 2;
 
 	bool isRunning = false;
 
@@ -67,9 +61,6 @@ int main(int argc, char* argv[]) {
 		SDL_RenderPresent(ren);
 	}
 
-	SDL_DestroyRenderer(ren);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
 
 	
 	

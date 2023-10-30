@@ -21,6 +21,8 @@ Grid::~Grid()
 
 void Grid::display() {
 
+    system("cls");
+
     std::cout << "-------------------------" << std::endl;
     for (int i = 0; i < 4; i++) {
         std::cout << "|";

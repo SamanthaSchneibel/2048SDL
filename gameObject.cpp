@@ -1,8 +1,0 @@
-/*GameObject::GameObject()
-{
-}
-
-GameObject::~GameObject()
-{
-}
-*/
