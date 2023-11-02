@@ -1,17 +1,15 @@
-#include "game.hpp"
+#include "window.hpp"
 #include "test.hpp"
-#include "SDL.h"
-#include "SDL_image.h"
 
 int main(int argc, char* argv[]) { 
 
 	srand(static_cast<unsigned int>(time(0)));
 
-	Game game;
+	Window game;
 	game.display();
 
 	while (game.running()) {
-		game.handleEvent();
+		game.event();
 		game.display();
 	}
 

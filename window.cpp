@@ -1,26 +1,28 @@
 #include "window.hpp"
-#include "SDL.h"
-#include "SDL_image.h"
 
 Window::Window()
 {
-	window = SDL_CreateWindow("2048", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, 0);
-	ren = SDL_CreateRenderer(window, -1, 0);
-
+	
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
 		std::cout << "Sub system init" << std::endl;
 
+		window = SDL_CreateWindow("2048", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, 0);
 		if (window)
 			std::cout << "Window init" << std::endl;
 
+		ren = SDL_CreateRenderer(window, -1, 0);
 		if (ren)
 		{
 			std::cout << "Renderer init" << std::endl;
-			SDL_SetRenderDrawColor(ren, 0, 0, 0, 0);
+			SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
 		}
 	}
 	isRunning = true;
+
+	grid.spawnCell();
+	grid.spawnCell();
+
 }
 
 Window::~Window()
@@ -30,7 +32,7 @@ Window::~Window()
 	SDL_Quit();
 }
 
-void Window::Event() { //Gestion des évènements
+void Window::event() { //Gestion des évènements
 
 	SDL_Event event;
 	SDL_PollEvent(&event);
@@ -45,17 +47,52 @@ void Window::Event() { //Gestion des évènements
 		break;
 	}
 
+	bool badKey = true;
+	while (badKey)
+	{
+		badKey = false;
+		int c = 0;
+		switch ((c = _getch()))
+		{
+		case KEY_UP:
+			if (grid.moveUp()) {
+				grid.spawnCell();
+			}
+			break;
+		case KEY_DOWN:
+			if (grid.moveDown()) {
+				grid.spawnCell();
+			}
+			break;
+		case KEY_RIGHT:
+			if (grid.moveRight()) {
+				grid.spawnCell();
+			}
+			break;
+		case KEY_LEFT:
+			if (grid.moveLeft()) {
+				grid.spawnCell();
+			}
+			break;
+		default:
+			badKey = true;
+			break;
+		}
+	}
+
 }
 
-void Window::Update() { //Mettre à jour les variables selon les évènements
+void Window::update() { //Mettre à jour les variables selon les évènements
 
 
 
 }
 
-void Window::Display() { //Afficher le rendu
+void Window::display() { //Afficher le rendu
 
 	SDL_RenderClear(ren);
+
+	grid.display();
 
 	//Afficher ici
 

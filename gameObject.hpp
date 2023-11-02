@@ -2,6 +2,7 @@
 #include "SDL_image.h"
 #include <string>
 
+/*
 class GameObject
 {
 public:
@@ -18,3 +19,4 @@ private:
 	SDL_Texture* texture;
 
 };
+*/

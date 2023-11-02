@@ -1,5 +1,6 @@
 #include "grid.hpp"
 
+/*
 class Test
 {
 public:
@@ -15,3 +16,4 @@ private:
 	bool isRunning = true;
 
 };
+*/

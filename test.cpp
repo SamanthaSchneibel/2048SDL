@@ -1,6 +1,6 @@
 #include "test.hpp"
 
-Test::Test()
+/*Test::Test()
 {
 }
 
@@ -40,3 +40,4 @@ void Test::test() {
         std::cout << "Nope" << std::endl;
 
 }
+*/

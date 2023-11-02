@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
+#include "cell.hpp"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -13,7 +14,7 @@ class Grid
 {
 public:
 	Grid();
-	Grid(int config[4][4]);
+	// Grid(Cell config[4][4]);
 	~Grid();
 
 	void display();
@@ -29,10 +30,10 @@ public:
 
 	bool isDefeat();
 
-	bool compare(int config[4][4]);
+	// bool compare(Cell config[4][4]);
 
 private:
 
-	int grid[4][4] = { 0 };
+	Cell grid[4][4];
 
 };
