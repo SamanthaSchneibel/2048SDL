@@ -9,11 +9,20 @@ int main(int argc, char* argv[]) {
 	game.display();
 
 	while (game.running()) {
+		//EVENT
 		game.event();
+		
+		//UPDATE
+		/*
+		if (game.isDefeat())
+		{
+			std::cout << "LOOOSERRR" << std::endl;
+		}*/
+
+
+		//DISPLAY
 		game.display();
 	}
-
-	std::cout << "LOOOSERRR" << std::endl;
 
 	/*
 	Test test;

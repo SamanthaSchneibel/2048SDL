@@ -1,22 +1,24 @@
+#pragma once
+#include <iostream>
+#include <stdio.h>
 #include "SDL.h"
-#include "SDL_image.h"
-#include <string>
+#include "window.hpp"
 
-/*
+class SDL_Texture;
+
 class GameObject
 {
 public:
-	GameObject(int x, int y, int w, int h, std::string texturePath);
+	GameObject();
 	~GameObject();
 
-	void Draw(Renderer* rend);
+	virtual void draw();
 
-private:
+protected:
 
 	int x, y;
 	int w, h;
 
-	SDL_Texture* texture;
+	SDL_Texture* pTexture;
 
 };
-*/

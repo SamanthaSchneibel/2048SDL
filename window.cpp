@@ -1,5 +1,7 @@
 #include "window.hpp"
 
+SDL_Renderer* Window::pRenderer;
+
 Window::Window()
 {
 	
@@ -7,46 +9,47 @@ Window::Window()
 	{
 		std::cout << "Sub system init" << std::endl;
 
-		window = SDL_CreateWindow("2048", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, 0);
-		if (window)
+		pWindow = SDL_CreateWindow("2048", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, 0);
+		if (pWindow)
 			std::cout << "Window init" << std::endl;
 
-		ren = SDL_CreateRenderer(window, -1, 0);
-		if (ren)
+		pRenderer = SDL_CreateRenderer(pWindow, -1, 0);
+		if (pRenderer)
 		{
 			std::cout << "Renderer init" << std::endl;
-			SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
+			SDL_SetRenderDrawColor(pRenderer, 0, 0, 0, 255);
 		}
 	}
 	isRunning = true;
 
 	grid.spawnCell();
 	grid.spawnCell();
-
 }
 
 Window::~Window()
 {
-	SDL_DestroyRenderer(ren);
-	SDL_DestroyWindow(window);
+	SDL_DestroyRenderer(pRenderer);
+	SDL_DestroyWindow(pWindow);
 	SDL_Quit();
 }
 
 void Window::event() { //Gestion des évènements
 
 	SDL_Event event;
-	SDL_PollEvent(&event);
-
-	switch (event.type)
+	while (SDL_PollEvent(&event)) 
 	{
-	case SDL_QUIT:
-		isRunning = false;
-		break;
+		switch (event.type)
+		{
+		case SDL_QUIT:
+			isRunning = false;
+			break;
 
-	default:
-		break;
+		default:
+			break;
+		}
 	}
-
+	
+	/*
 	bool badKey = true;
 	while (badKey)
 	{
@@ -78,7 +81,7 @@ void Window::event() { //Gestion des évènements
 			badKey = true;
 			break;
 		}
-	}
+	}*/
 
 }
 
@@ -90,12 +93,13 @@ void Window::update() { //Mettre à jour les variables selon les évènements
 
 void Window::display() { //Afficher le rendu
 
-	SDL_RenderClear(ren);
+	SDL_SetRenderDrawColor(pRenderer, 0, 0, 0, 255);
+	SDL_RenderClear(pRenderer);
 
 	grid.display();
 
 	//Afficher ici
 
-	SDL_RenderPresent(ren);
+	SDL_RenderPresent(pRenderer);
 
 }

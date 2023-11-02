@@ -36,4 +36,5 @@ private:
 
 	Cell grid[4][4];
 
+	std::vector<SDL_Texture*> textures;
 };

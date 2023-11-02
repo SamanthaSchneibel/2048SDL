@@ -1,16 +1,28 @@
-#include "SDL.h"
-#include "SDL_image.h"
+#pragma once
+#include "gameObject.hpp"
+ 
+#include <vector>
 
-class Cell
+class Cell : GameObject
 {
+private:
+	int value;
+
 public:
 	Cell();
 	~Cell();
 
-	int value = 0;
+	void setTextures(std::vector<SDL_Texture*>* textures);
 
-	void setValue();
+	int getValue();
+	void doubleValue();
+	void resetValue();
+	bool isEmpty();
+	void setValue(int value);
+	void setValue(Cell& oCell);
+
+	void draw() override;
 
 private:
-
+	std::vector<SDL_Texture*>* textures;
 };

@@ -1,14 +1,21 @@
 #include "gameObject.hpp"
 
-/*
-GameObject::GameObject(int x, int y, int w, int h, std::string texturePath)
+GameObject::GameObject()
 {
-	SDL_Surface* tmpSur = IMG_Load("img/");
-	SDL_Texture* tex = SDL_CreateTextureFromSurface(ren, tmpSur);
-	SDL_FreeSurface(tmpSur);
 }
 
 GameObject::~GameObject()
 {
 }
-*/
+
+void GameObject::draw() {
+
+	SDL_Rect oPosition;
+	oPosition.x = 0;
+	oPosition.y = 0;
+
+	SDL_QueryTexture(pTexture, NULL, NULL, &oPosition.w, &oPosition.h);
+
+	SDL_RenderCopy(Window::pRenderer, pTexture, NULL, &oPosition);
+
+}
