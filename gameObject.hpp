@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include <iostream>
 #include <stdio.h>
@@ -22,3 +23,4 @@ protected:
 	SDL_Texture* pTexture;
 
 };
+*/

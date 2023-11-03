@@ -2,6 +2,7 @@
 
 Grid::Grid()
 {
+    /*
     SDL_Surface* surfaces[11];
 
     surfaces[0] = SDL_LoadBMP("img/2.bmp");
@@ -43,17 +44,18 @@ Grid::Grid()
             grid[i][j].setTextures(&textures);
         }
     }
+    */
 
 }
 
 /*
-Grid::Grid(Cell config[4][4])
+Grid::Grid(int config[4][4])
 {
     for (int i = 0; i < 4; ++i)
     {
         for (int j = 0; j < 4; ++j)
         {
-            grid[i][j].value = config[i][j].value;
+            grid[i][j].setValue(config[i][j]);
         }
     }
 }
@@ -65,7 +67,7 @@ Grid::~Grid()
 
 void Grid::display() 
 {
-    /*
+
     system("cls");
 
     std::cout << "-------------------------" << std::endl;
@@ -84,8 +86,9 @@ void Grid::display()
                 std::cout << grid[i][j].getValue() << "    |";
         }
         std::cout << std::endl << "-------------------------" << std::endl;
-    }*/
+    }
 
+    /*
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
@@ -93,6 +96,8 @@ void Grid::display()
             grid[i][j].draw();
         }
     }
+    */
+
 }
 
 bool Grid::moveRight() {
@@ -349,7 +354,7 @@ bool Grid::compare(int config[4][4])
 {
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
-            if (grid[i][j].value != config[i][j]) {
+            if (grid[i][j].getValue() != config[i][j]) {
                 return false;
             }
         }

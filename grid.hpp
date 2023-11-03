@@ -14,7 +14,7 @@ class Grid
 {
 public:
 	Grid();
-	// Grid(Cell config[4][4]);
+	//Grid(int config[4][4]);
 	~Grid();
 
 	void display();
@@ -30,11 +30,15 @@ public:
 
 	bool isDefeat();
 
+	//bool compare(int config[4][4]);
+
+
 	// bool compare(Cell config[4][4]);
 
 private:
 
 	Cell grid[4][4];
 
-	std::vector<SDL_Texture*> textures;
+	//std::vector<SDL_Texture*> textures;
+
 };

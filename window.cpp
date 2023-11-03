@@ -1,5 +1,61 @@
 #include "window.hpp"
 
+Window::Window()
+{
+	grid.spawnCell();
+	grid.spawnCell();
+}
+
+Window::~Window()
+{
+}
+
+void Window::display() {
+
+	grid.display();
+
+}
+
+void Window::handleEvent() {
+
+	bool badKey = true;
+	while (badKey)
+	{
+		badKey = false;
+		int c = 0;
+		switch ((c = _getch()))
+		{
+		case KEY_UP:
+			if (grid.moveUp()) {
+				grid.spawnCell();
+			}
+			break;
+		case KEY_DOWN:
+			if (grid.moveDown()) {
+				grid.spawnCell();
+			}
+			break;
+		case KEY_RIGHT:
+			if (grid.moveRight()) {
+				grid.spawnCell();
+			}
+			break;
+		case KEY_LEFT:
+			if (grid.moveLeft()) {
+				grid.spawnCell();
+			}
+			break;
+		default:
+			badKey = true;
+			break;
+		}
+	}
+
+}
+
+
+
+/*
 SDL_Renderer* Window::pRenderer;
 
 Window::Window()
@@ -49,7 +105,6 @@ void Window::event() { //Gestion des évènements
 		}
 	}
 	
-	/*
 	bool badKey = true;
 	while (badKey)
 	{
@@ -81,7 +136,7 @@ void Window::event() { //Gestion des évènements
 			badKey = true;
 			break;
 		}
-	}*/
+	}
 
 }
 
@@ -103,3 +158,4 @@ void Window::display() { //Afficher le rendu
 	SDL_RenderPresent(pRenderer);
 
 }
+*/

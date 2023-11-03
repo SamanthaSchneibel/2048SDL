@@ -6,11 +6,12 @@ Cell::Cell()
 	value = 0;
 }
 
-
+/*
 void Cell::setTextures(std::vector<SDL_Texture*>* textures) 
 {
 	this->textures = textures;
 }
+*/
 
 Cell::~Cell()
 {
@@ -40,6 +41,7 @@ void Cell::setValue(int value)
 {
 	this->value = value;
 
+	/*
 	if (value == 0) 
 	{
 		pTexture = (*textures)[0];
@@ -49,8 +51,8 @@ void Cell::setValue(int value)
 	{
 		pTexture = (*textures)[1];
 	}
+	*/
 	
-
 }
 
 void Cell::setValue(Cell& oCell) {

@@ -1,3 +1,4 @@
+/*
 #include "gameObject.hpp"
 
 GameObject::GameObject()
@@ -19,3 +20,4 @@ void GameObject::draw() {
 	SDL_RenderCopy(Window::pRenderer, pTexture, NULL, &oPosition);
 
 }
+*/

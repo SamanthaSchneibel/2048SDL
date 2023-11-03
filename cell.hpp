@@ -1,9 +1,9 @@
 #pragma once
-#include "gameObject.hpp"
+//#include "gameObject.hpp"
  
-#include <vector>
+//#include <vector>
 
-class Cell : GameObject
+class Cell //: GameObject
 {
 private:
 	int value;
@@ -12,7 +12,7 @@ public:
 	Cell();
 	~Cell();
 
-	void setTextures(std::vector<SDL_Texture*>* textures);
+	//void setTextures(std::vector<SDL_Texture*>* textures);
 
 	int getValue();
 	void doubleValue();
@@ -21,8 +21,9 @@ public:
 	void setValue(int value);
 	void setValue(Cell& oCell);
 
-	void draw() override;
+	//void draw() override;
 
 private:
-	std::vector<SDL_Texture*>* textures;
+	//std::vector<SDL_Texture*>* textures;
+
 };
