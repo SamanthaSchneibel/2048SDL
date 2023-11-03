@@ -32,9 +32,6 @@ public:
 
 	//bool compare(int config[4][4]);
 
-
-	// bool compare(Cell config[4][4]);
-
 private:
 
 	Cell grid[4][4];

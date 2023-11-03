@@ -53,8 +53,6 @@ void Window::handleEvent() {
 
 }
 
-
-
 /*
 SDL_Renderer* Window::pRenderer;
 
